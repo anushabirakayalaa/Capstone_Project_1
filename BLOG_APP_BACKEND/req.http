@@ -1,0 +1,128 @@
+### USER REGISTER
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName": "Usha",
+    "lastName": "BIR",
+    "email": "ushamail.com",
+    "password": "1234",
+    "profileImageUrl": "https://example.com/avatars/author.png"  
+
+}
+
+### User Login
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "usha@Gmail.com",
+  "password": "1234",
+  "role":"USER"
+}
+
+### reading all articles as user
+GET http://localhost:4000/user-api/articles
+
+
+### Commenting on an article
+PUT http://localhost:4000/user-api/articles
+Content-Type: application/json
+
+{
+    "user":"698c965349ee23be176fe249",
+    "articleId":"698ca6634831f82cdda0cd55",
+    "comment": "This is a comment on the article second time."
+}
+
+
+
+
+
+
+### Author Registration
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName": "Anu",
+    "lastName": "B",
+    "email": "ashaa@Gmail.com",
+    "password": "124",
+    "profileImageUrl": "https://example.com/avatars/author.png"
+}
+### 2nd Author Registration
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName": "Bnausha",
+    "lastName": "B",
+    "email": "haaGmail.com",
+    "password": "124",
+    "profileImageUrl": "https://example.com/avatars/author.png"
+}
+
+### Author Login
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "ashaa@Gmail.com",
+  "password": "124"
+}
+
+
+### Create Article (AUTHOR)
+POST http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author": "698c9cbe316f7487ffb7a35d",
+    "title": "My life is succesful",
+    "category": "anushaa@Gmail.com",
+    "content": "124"
+}
+
+###read articles of a author
+GET http://localhost:4000/author-api/articles/698c9cbe316f7487ffb7a35d
+
+###Update Article (AUTHOR)
+PUT http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author": "698c9cbe316f7487ffb7a35d",
+    "articleId":"698ca6634831f82cdda0cd55",
+    "title": "My life will succesful",
+    "category": "programming",
+    "content": "content of test 2"
+}
+
+###Read articles of a author
+GET http://localhost:4000/author-api/articles/698c9cbe316f7487ffb7a35d
+
+###DELETE ARTICLE
+PATCH http://localhost:4000/author-api/articles/698c9cbe316f7487ffb7a35d/status
+Content-Type: application/json
+
+{
+    "isArticleActive":true
+}
+
+
+
+
+
+
+
+###Logout
+GET http://localhost:4000/common-api/logout
+
+
+###Test
+GET  http://localhost:4000/test
+
+  
+
+
