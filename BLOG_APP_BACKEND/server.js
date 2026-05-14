@@ -19,6 +19,12 @@ const isAllowedOrigin = (origin) => {
     return true;
   }
 
+  const deployedOrigins = ["https://blogtest1.onrender.com"];
+
+  if (deployedOrigins.includes(origin)) {
+    return true;
+  }
+
   try {
     const { hostname, protocol } = new URL(origin);
     return protocol === "http:" && ["localhost", "127.0.0.1"].includes(hostname);
