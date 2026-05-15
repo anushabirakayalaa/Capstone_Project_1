@@ -45,7 +45,7 @@ function Register() {
         formData.append("profilePic", profilePic[0]);
       }
 
-      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+      const baseUrl = import.meta.env.VITE_API_URL || "https://capstone-project-1-1-9zol.onrender.com";
       const endpoint =
         role === "author"
           ? `${baseUrl}/author-api/users`

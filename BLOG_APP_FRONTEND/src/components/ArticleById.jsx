@@ -40,7 +40,7 @@ function ArticleByID() {
       setLoading(true);
 
       try {
-        const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+        const baseUrl = import.meta.env.VITE_API_URL || "https://capstone-project-1-1-9zol.onrender.com";
         const res = await axios.get(`${baseUrl}/user-api/articles/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
@@ -70,7 +70,7 @@ function ArticleByID() {
     if (!window.confirm(confirmMsg)) return;
 
     try {
-      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+      const baseUrl = import.meta.env.VITE_API_URL || "https://capstone-project-1-1-9zol.onrender.com";
       const res = await axios.patch(
         `${baseUrl}/author-api/articles/${id}/status`,
         { isArticleActive: newStatus },
@@ -106,7 +106,7 @@ function ArticleByID() {
     commentObj.articleId = article._id;
     commentObj.user = user._id;
     console.log(commentObj);
-    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+    const baseUrl = import.meta.env.VITE_API_URL || "https://capstone-project-1-1-9zol.onrender.com";
     let res = await axios.put(`${baseUrl}/user-api/articles`, commentObj, { withCredentials: true });
     if (res.status === 200) {
       toast.success(res.data.message);

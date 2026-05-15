@@ -10,7 +10,7 @@ function ArticleDetails() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+        const baseUrl = import.meta.env.VITE_API_URL || "https://capstone-project-1-1-9zol.onrender.com";
         const response = await axios.get(
           `${baseUrl}/user-api/articles/${id}`,
           { withCredentials: true }
