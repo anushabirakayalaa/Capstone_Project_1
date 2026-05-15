@@ -40,7 +40,8 @@ function ArticleByID() {
       setLoading(true);
 
       try {
-        const res = await axios.get(`http://localhost:4000/user-api/articles/${id}`, { withCredentials: true });
+        const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+        const res = await axios.get(`${baseUrl}/user-api/articles/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
       } catch (err) {
@@ -69,8 +70,9 @@ function ArticleByID() {
     if (!window.confirm(confirmMsg)) return;
 
     try {
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
       const res = await axios.patch(
-        `http://localhost:4000/author-api/articles/${id}/status`,
+        `${baseUrl}/author-api/articles/${id}/status`,
         { isArticleActive: newStatus },
         { withCredentials: true },
       );
@@ -104,7 +106,8 @@ function ArticleByID() {
     commentObj.articleId = article._id;
     commentObj.user = user._id;
     console.log(commentObj);
-    let res = await axios.put("http://localhost:4000/user-api/articles", commentObj, { withCredentials: true });
+    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+    let res = await axios.put(`${baseUrl}/user-api/articles`, commentObj, { withCredentials: true });
     if (res.status === 200) {
       toast.success(res.data.message);
       setArticle(res.data.payload);

@@ -10,8 +10,9 @@ function ArticleDetails() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
+        const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
         const response = await axios.get(
-          `http://localhost:4000/user-api/articles/${id}`,
+          `${baseUrl}/user-api/articles/${id}`,
           { withCredentials: true }
         );
 

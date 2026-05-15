@@ -45,10 +45,11 @@ function Register() {
         formData.append("profilePic", profilePic[0]);
       }
 
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
       const endpoint =
         role === "author"
-          ? "http://localhost:4000/author-api/users"
-          : "http://localhost:4000/user-api/users";
+          ? `${baseUrl}/author-api/users`
+          : `${baseUrl}/user-api/users`;
 
       const resObj = await axios.post(endpoint, formData);
       if (resObj.status === 201) {
